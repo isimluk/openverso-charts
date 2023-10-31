@@ -108,6 +108,9 @@ spec:
             - name: gtpc
               containerPort: {{ .Values.containerPorts.gtpc }}
               protocol: UDP
+            - name: metrics
+              containerPort: {{ .Values.containerPorts.metrics }}
+              protocol: TCP
           {{- if .Values.customStartupProbe }}
           startupProbe: {{- include "common.tplvalues.render" (dict "value" .Values.customStartupProbe "context" $) | nindent 12 }}
           {{- end }}

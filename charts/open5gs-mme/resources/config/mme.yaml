@@ -25,6 +25,11 @@ mme:
   network_name:
     full: {{ .Values.config.networkName }}
   mme_name: {{ include "common.names.fullname" . }}
+  {{- if .Values.metrics.enabled }}
+  metrics:
+    addr: 0.0.0.0
+    port: 9090
+  {{- end }}
 
 sgwc:
   gtpc:
